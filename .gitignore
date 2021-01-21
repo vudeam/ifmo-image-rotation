@@ -1,5 +1,10 @@
+# VS and VS Code dirs
+.vscode/
+.vs/
+
 # obj file dir
 obj/
 
 # target file
+a.out
 bmprot
