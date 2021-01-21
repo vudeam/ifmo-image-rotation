@@ -6,12 +6,17 @@ CFLAGS=-std=c18 -pedantic -Wall -Werror -g
 INCDIR=include
 OBJDIR=obj
 
-all: main.o
+all: main.o bmp.o
 	$(CC) $(OBJDIR)/*.o -o bmprot $(CFLAGS)
-	./bmprot
+
+run: all
+	./bmprot BMPs/FontDialog.bmp
 
 main.o: ./main.c
 	$(CC) -c ./main.c -o $(OBJDIR)/main.o $(CFLAGS)
+
+bmp.o: ./bmp.c
+	$(CC) -c ./bmp.c -o $(OBJDIR)/bmp.o $(CFLAGS)
 
 .PHONY: clean
 clean:
