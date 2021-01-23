@@ -26,6 +26,7 @@ bitmap_header {
 };
 
 
-bool read_header(FILE*, struct bitmap_header*);
+bool read_header (FILE*, struct bitmap_header*);
+bool write_header(FILE*, struct bitmap_header*);
 
 #endif // _BMP_H

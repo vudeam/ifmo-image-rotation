@@ -6,7 +6,7 @@ CFLAGS=-std=c18 -pedantic -Wall -Werror -g
 INCDIR=include
 OBJDIR=obj
 
-all: main.o bmp.o
+all: main.o bmp.o img.o
 	$(CC) $(OBJDIR)/*.o -o bmprot $(CFLAGS)
 
 run: all
@@ -15,8 +15,11 @@ run: all
 main.o: ./main.c
 	$(CC) -c ./main.c -o $(OBJDIR)/main.o $(CFLAGS)
 
-bmp.o: ./bmp.c
+bmp.o: ./bmp.c $(INCDIR)/bmp.h
 	$(CC) -c ./bmp.c -o $(OBJDIR)/bmp.o $(CFLAGS)
+
+img.o: ./img.c $(INCDIR)/img.h
+	$(CC) -c ./img.c -o $(OBJDIR)/img.o $(CFLAGS)
 
 .PHONY: clean
 clean:
